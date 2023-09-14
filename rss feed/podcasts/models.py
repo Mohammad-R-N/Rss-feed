@@ -23,12 +23,12 @@ class Channel(models.Model):
     summary = models.TextField(null=True, blank=True)
     image = models.URLField(max_length=255, null=True, blank=True)
     keywords=models.TextField(null=True, blank=True)
-    OwnerName = models.CharField(max_length=50, null=True, blank=True)
-    OwnerEmail = models.EmailField(null=True, blank=True)
+    ownerName = models.CharField(max_length=50, null=True, blank=True)
+    ownerEmail = models.EmailField(null=True, blank=True)
     isExplicit = models.CharField(max_length=3, default="no")
     xml=models.ForeignKey(XML,on_delete=models.PROTECT)
     follow=models.ForeignKey(Follow,on_delete=models.PROTECT)
     category=models.ForeignKey(Category,on_delete=models.PROTECT)
-    
+
     def __str__(self):
         return self.title
