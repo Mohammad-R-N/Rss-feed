@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from django.utils.translation import gettext_lazy as _
+from podcasts.models import Channel
 
 
 class Account(AbstractUser,PermissionsMixin):
@@ -20,3 +21,11 @@ class Account(AbstractUser,PermissionsMixin):
 
     def __str__(self) -> str:
         return self.username
+    
+
+class Follow(models.Model):
+    account=models.ForeignKey(Account,on_delete=models.PROTECT,null=False)
+    channel=models.ForeignKey(Channel,on_delete=models.PROTECT,null=False)
+
+    def __str__(self) -> str:
+        return f"{self.account}-{self.channel}"
