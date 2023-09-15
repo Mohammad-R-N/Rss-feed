@@ -43,3 +43,27 @@ class ChannelSerializer(ModelSerializer):
             "follow",
             "category"
         ]
+
+
+class EpisodeSerializer(ModelSerializer):
+    
+    class Meta:
+        model = Episode
+        fields = [
+            "title",
+            "link",
+            "guid",
+            "pubdate",
+            "author",
+            "enclosure",
+            "subtitle",
+            "duration",
+            "isExplicit",
+            "description",
+            "keywords",
+            "encoded",
+            "summary",
+            "player",
+            "image",
+            "channel",
+        ]
