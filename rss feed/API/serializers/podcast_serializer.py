@@ -21,3 +21,25 @@ class XMLSerializer(ModelSerializer):
             "name",
         ]
 
+
+class ChannelSerializer(ModelSerializer):
+
+    class Meta:
+        model = Channel
+        fields = [
+            "title",
+            "description",
+            "language",
+            "copyright",
+            "subtitle",
+            "author",
+            "summary",
+            "image",
+            "keywords",
+            "ownerName",
+            "ownerEmail",
+            "isExplicit",
+            "xml",
+            "follow",
+            "category"
+        ]
