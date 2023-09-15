@@ -4,7 +4,7 @@ from podcasts.models import Episode,Channel
 from rest_framework.pagination import PageNumberPagination
 from API.serializers.podcast_serializer import EpisodeSerializer,ChannelSerializer
 
-
+app_name="API"
 class ChannelListCreateView(generics.ListCreateAPIView):
     serializer_class = ChannelSerializer
 
@@ -13,7 +13,7 @@ class ChannelListCreateView(generics.ListCreateAPIView):
         return queryset
     
 
-
+app_name="API"
 class ChannelDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ChannelSerializer
 
@@ -27,14 +27,14 @@ class ChannelDetailView(generics.RetrieveUpdateDestroyAPIView):
 
         return queryset.first()
 
-
+app_name="API"
 class CustomPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = "page_size"
     max_page_size = 1000
 
 
-
+app_name="API"
 class EpisodeListCreateView(generics.ListCreateAPIView):
     serializer_class = EpisodeSerializer
     pagination_class = CustomPagination
@@ -50,7 +50,7 @@ class EpisodeListCreateView(generics.ListCreateAPIView):
         return queryset
     
 
-
+app_name="API"
 class EpisodeDetailView(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = EpisodeSerializer
 
