@@ -48,3 +48,18 @@ class EpisodeListCreateView(generics.ListCreateAPIView):
             raise Http404("Podcast episode not found")
 
         return queryset
+    
+
+
+class EpisodeDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = EpisodeSerializer
+
+    def get_object(self):
+        pk = self.kwargs["pk"]
+
+        queryset = Episode.objects.filter(pk=pk)
+
+        if not queryset.exists():
+            raise Http404("Podcast episode not found")
+
+        return queryset.first()
