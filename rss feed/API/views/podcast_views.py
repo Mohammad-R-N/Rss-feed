@@ -32,3 +32,19 @@ class CustomPagination(PageNumberPagination):
     page_size = 10
     page_size_query_param = "page_size"
     max_page_size = 1000
+
+
+
+class EpisodeListCreateView(generics.ListCreateAPIView):
+    serializer_class = EpisodeSerializer
+    pagination_class = CustomPagination
+
+    def get_queryset(self):
+        podcast_pk = self.kwargs["pk"]
+
+        queryset = Episode.objects.filter(podcast__pk=podcast_pk)
+
+        if not queryset.exists():
+            raise Http404("Podcast episode not found")
+
+        return queryset
