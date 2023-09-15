@@ -1,5 +1,7 @@
 # Rss-feed
-RSS Feed Aggregator Project
+##Project Description
+
+This project aims to develop an RSS feed aggregator using Django. The aggregator will extract and store data from various RSS feed sources, including APIs and custom XML feeds. It will implement advanced parsing techniques, data mapping, and flexible schema design to accommodate diverse feed structures. The project will also include custom JWT authentication using Redis to store access tokens and utilize and PostgreSQL as the database.
 
 Follow these steps to set up the project locally:
 
