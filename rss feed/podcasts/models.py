@@ -29,9 +29,12 @@ class Channel(models.Model):
     ownerName = models.CharField(max_length=50, null=True, blank=True)
     ownerEmail = models.EmailField(null=True, blank=True)
     isExplicit = models.CharField(max_length=3, default="no")
-    xml=models.ForeignKey(XML,on_delete=models.PROTECT)
-    follow=models.ForeignKey(Follow,on_delete=models.PROTECT)
-    category=models.ForeignKey(Category,on_delete=models.PROTECT)
+    websiteUrl = models.URLField(max_length=255, null=True, blank=True)
+    genres = models.CharField(max_length=50, null=True, blank=True)
+    contentType = models.CharField(max_length=10, null=True, blank=True)
+    xml=models.ForeignKey(XML,on_delete=models.PROTECT,null=True, blank=True)
+    follow=models.ForeignKey(Follow,on_delete=models.PROTECT,null=True, blank=True)
+    category=models.ForeignKey(Category,on_delete=models.PROTECT,null=True, blank=True)
 
     def __str__(self):
         return self.title
