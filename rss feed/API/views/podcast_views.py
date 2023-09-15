@@ -26,3 +26,9 @@ class ChannelDetailView(generics.RetrieveUpdateDestroyAPIView):
             raise Http404("Podcast not found")
 
         return queryset.first()
+
+
+class CustomPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = "page_size"
+    max_page_size = 1000
