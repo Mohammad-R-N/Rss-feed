@@ -38,19 +38,19 @@ class Channel(models.Model):
     
 
 class Episode(models.Model):
-    
-    title = models.CharField(max_length=50)
+
+    title = models.CharField(max_length=50,null=True, blank=True)
     link=models.URLField(max_length=255, null=True, blank=True)
     guid=models.CharField(max_length=60)
     pubdate = models.CharField(max_length=100)
     author = models.CharField(max_length=50, null=True)
     enclosure=models.URLField(max_length=255, null=True, blank=True)
-    subtitle=models.TextField()
+    subtitle=models.TextField(null=True, blank=True)
     duration = models.CharField(max_length=25)
     explicit = models.CharField(max_length=5, default="no")
     description = models.TextField(null=True, blank=True)
     keywords=models.TextField(null=True, blank=True)
-    encoded=models.TextField()
+    encoded=models.TextField(null=True, blank=True)
     summary = models.TextField(null=True, blank=True)
     player = models.URLField(max_length=255)
     image = models.URLField(max_length=255, null=True, blank=True)
