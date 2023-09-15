@@ -41,7 +41,10 @@ class ChannelSerializer(ModelSerializer):
             "isExplicit",
             "xml",
             "follow",
-            "category"
+            "category",
+            "websiteUrl",
+            "genres",
+            "contentType"
         ]
 
 
