@@ -20,7 +20,7 @@ class RegisterAPIView(APIView):
 
 app_name="API"
 class LoginAPIView(APIView):
-    
+
     def post(self, request):
         account = Account.objects.filter(email=request.data["email"]).first()
 
@@ -56,3 +56,14 @@ class AccountAPIView(APIView):
             return Response(AccountSerializer(account).data)
 
         raise AuthenticationFailed("unauthenticated")
+    
+
+app_name="API"
+class RefreshAPIView(APIView):
+
+    def post(self, request):
+        
+        refresh_token = request.COOKIES.get("refreshToken")
+        id = decode_refresh_token(refresh_token)
+        access_token = create_access_token(id)
+        return Response({"token": access_token})
