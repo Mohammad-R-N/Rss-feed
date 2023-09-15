@@ -1,5 +1,4 @@
 from django.db import models
-from accounts.models import Follow
 
 class Category(models.Model):
 
@@ -33,7 +32,6 @@ class Channel(models.Model):
     genres = models.CharField(max_length=50, null=True, blank=True)
     contentType = models.CharField(max_length=10, null=True, blank=True)
     xml=models.ForeignKey(XML,on_delete=models.PROTECT,null=True, blank=True)
-    follow=models.ForeignKey(Follow,on_delete=models.PROTECT,null=True, blank=True)
     category=models.ForeignKey(Category,on_delete=models.PROTECT,null=True, blank=True)
 
     def __str__(self):
