@@ -10,3 +10,14 @@ class CategorySerializer(ModelSerializer):
         fields=[
             "name",
         ]
+
+
+class XMLSerializer(ModelSerializer):
+
+    class Meta:
+        model = XML
+        fields = [
+            "link",
+            "name",
+        ]
+
