@@ -20,6 +20,7 @@ class RegisterAPIView(APIView):
 
 app_name="API"
 class LoginAPIView(APIView):
+    
     def post(self, request):
         account = Account.objects.filter(email=request.data["email"]).first()
 
@@ -38,3 +39,20 @@ class LoginAPIView(APIView):
         response.data = {"token": access_token}
 
         return response
+    
+
+app_name="API"
+class AccountAPIView(APIView):
+
+    def get(self, request):
+        auth = get_authorization_header(request).split()
+
+        if auth and len(auth) == 2:
+            token = auth[1].decode("utf-8")
+            id = decode_access_token(token)
+
+            account = Account.objects.filter(pk=id).first()
+
+            return Response(AccountSerializer(account).data)
+
+        raise AuthenticationFailed("unauthenticated")
