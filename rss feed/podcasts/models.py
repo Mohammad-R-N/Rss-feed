@@ -47,7 +47,7 @@ class Episode(models.Model):
     enclosure=models.URLField(max_length=255, null=True, blank=True)
     subtitle=models.TextField(null=True, blank=True)
     duration = models.CharField(max_length=25)
-    explicit = models.CharField(max_length=5, default="no")
+    isExplicit = models.CharField(max_length=3, default="no")
     description = models.TextField(null=True, blank=True)
     keywords=models.TextField(null=True, blank=True)
     encoded=models.TextField(null=True, blank=True)
