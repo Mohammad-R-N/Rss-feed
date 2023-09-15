@@ -11,3 +11,18 @@ class ChannelListCreateView(generics.ListCreateAPIView):
     def get_queryset(self):
         queryset = Channel.objects.all()
         return queryset
+    
+
+
+class ChannelDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ChannelSerializer
+
+    def get_object(self):
+        pk = self.kwargs["pk"]
+
+        queryset = Channel.objects.filter(pk=pk)
+
+        if not queryset.exists():
+            raise Http404("Podcast not found")
+
+        return queryset.first()
