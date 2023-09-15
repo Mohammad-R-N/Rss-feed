@@ -49,10 +49,10 @@ Follow these steps to set up the project locally:
    python manage.py runserver
    ```
 
-The project should now be running locally at `http://localhost:8000/`.
+The project should now be running locally at `http://localhost:8000/`.✅
 
 
-## 🌟 Running the Parsing Process
+## 🌟 Parse Podcasts
 
 To parse the podcast feeds and populate your database with podcast episodes, you can use the following management command:
 
@@ -63,7 +63,7 @@ python manage.py parse_podcast
 This command will trigger the parsing process, fetching the RSS feeds you added through the Django admin panel and updating your database with podcast episode data.
 
 
-## 🎁 Usage
+## 🎁 Usage of Project
 
 To use these endpoints, you can make GET and POST requests to the URLs listed above as per your requirements. For example:
 
