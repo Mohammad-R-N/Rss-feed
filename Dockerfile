@@ -10,4 +10,4 @@ RUN pip install -r requirements.txt
 COPY . /src/
 EXPOSE 8000
 
-CMD [ "gunicorn","rss\ feed/.wsgi",":8000" ]
+CMD [ "gunicorn","config.wsgi",":8000" ]
