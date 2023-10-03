@@ -1,7 +1,0 @@
-requests
-django==4.2.0
-django-environ
-pillow
-psycopg2-binary
-djangorestframework
-jwt
