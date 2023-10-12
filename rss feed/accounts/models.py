@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 from podcasts.models import Channel
-
+from core.models import BaseModel
 
 class Account(AbstractUser,PermissionsMixin):
     username = models.CharField(max_length=100,verbose_name=_("User Name"))
@@ -21,4 +21,19 @@ class Account(AbstractUser,PermissionsMixin):
 
     def __str__(self) -> str:
         return self.username
+   
     
+class Notification(BaseModel):
+    CHOICES = (
+        ('l', 'login'),
+        ('r', 'registery'),
+        ('t', 'token'),
+        ('o', 'others')
+    )
+
+    title = models.CharField(choices=CHOICES, max_length=1)
+    user = models.ForeignKey(Account, on_delete=models.CASCADE)
+    message = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.message
