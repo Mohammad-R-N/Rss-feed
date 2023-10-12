@@ -7,7 +7,9 @@ from core.utils import phone_regex_validator
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from .managers import CustomUserManager
 
+
 class Account(AbstractUser,PermissionsMixin):
+
     username_validator = UnicodeUsernameValidator()
 
     first_name = models.CharField(max_length=30, verbose_name=_('First Name'))
@@ -22,7 +24,7 @@ class Account(AbstractUser,PermissionsMixin):
     is_active = models.BooleanField(default=True, verbose_name=_('Activation Status'))
 
     objects = CustomUserManager()
-    
+
     class Meta:
         verbose_name = _('User')
         verbose_name_plural = _('Users')
@@ -46,6 +48,7 @@ class Account(AbstractUser,PermissionsMixin):
 
 
 class Notification(BaseModel):
+    
     CHOICES = (
         ('l', 'login'),
         ('r', 'registery'),
