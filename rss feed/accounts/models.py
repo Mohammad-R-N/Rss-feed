@@ -22,10 +22,3 @@ class Account(AbstractUser,PermissionsMixin):
     def __str__(self) -> str:
         return self.username
     
-
-class Follow(models.Model):
-    account=models.ForeignKey(Account,on_delete=models.PROTECT,null=False)
-    channel=models.ForeignKey(Channel,on_delete=models.PROTECT,null=False)
-
-    def __str__(self) -> str:
-        return f"{self.account}-{self.channel}"
