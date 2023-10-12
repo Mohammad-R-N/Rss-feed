@@ -45,7 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'accounts.apps.AccountsConfig',
+    'core.apps.CoreConfig',
     'podcasts.apps.PodcastsConfig',
+    'interactions.apps.InteractionsConfig',
+    'parser.apps.ParserConfig',
+    'podcasts.apps.PodcastsConfig'
 ]
 
 MIDDLEWARE = [
