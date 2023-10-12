@@ -30,7 +30,7 @@ class Account(AbstractUser,PermissionsMixin):
         verbose_name_plural = _('Users')
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email', 'first_name', 'last_name', 'phone_number']
+    REQUIRED_FIELDS = ['email', 'first_name', 'last_name', 'phone_number','username']
 
     def __str__(self) -> str:
         return self.username
@@ -48,7 +48,7 @@ class Account(AbstractUser,PermissionsMixin):
 
 
 class Notification(BaseModel):
-    
+
     CHOICES = (
         ('l', 'login'),
         ('r', 'registery'),
